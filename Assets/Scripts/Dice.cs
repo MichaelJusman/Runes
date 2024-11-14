@@ -13,11 +13,12 @@ public enum DiceFace
     Gold  //Gives gold resources
 }
 
-public class Dice : MonoBehaviour
+public class Dice
 {
     public DiceFace Roll()
     {
-        Array faces = Enum.GetValues(typeof(DiceFace));
-        return (DiceFace)faces.GetValue(UnityEngine.Random.Range(0, faces.Length));
+        // Randomly select a face
+        DiceFace[] faces = (DiceFace[])System.Enum.GetValues(typeof(DiceFace));
+        return faces[UnityEngine.Random.Range(0, faces.Length)];
     }
 }
