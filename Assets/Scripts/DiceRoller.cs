@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class DiceRoller : MonoBehaviour
 {
-    public List<Dice> dicePool;  // List to hold dice
-    public Dictionary<ResourceColor, int> rolledResources;  // Store resource totals after rolling
+    public GameObject dicePrefab;
+    public GameObject diceHolder;
+    private List<Dice> dicePool = new List<Dice>();  // List to hold dice
+    private Dictionary<ResourceColor, int> rolledResources;  // Store resource totals after rolling
 
     private int startingDiceCount = 2;  // Start with 2 dice
     private int currentDiceCount;
@@ -35,7 +37,7 @@ public class DiceRoller : MonoBehaviour
         dicePool = new List<Dice>();
         for (int i = 0; i < startingDiceCount; i++)
         {
-            dicePool.Add(new Dice());
+            AddDice();
         }
     }
 
@@ -72,9 +74,14 @@ public class DiceRoller : MonoBehaviour
 
     private void AddDice()
     {
-        dicePool.Add(new Dice());
-        currentDiceCount++;
-        Debug.Log("Added one more die. Current dice count: " + currentDiceCount);
+        GameObject diceObject = Instantiate(dicePrefab, diceHolder.transform);  // Instantiate from prefab
+        Dice newDie = diceObject.GetComponent<Dice>();
+        if (newDie != null)
+        {
+            dicePool.Add(newDie);  // Add the new Dice instance to the pool
+            currentDiceCount++;
+            Debug.Log("Added one more die. Current dice count: " + currentDiceCount);
+        }
     }
 
     private void DisplayRolledResources()

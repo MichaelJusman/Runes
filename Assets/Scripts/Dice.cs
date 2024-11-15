@@ -13,7 +13,7 @@ public enum DiceFace
     Gold  //Gives gold resources
 }
 
-public class Dice
+public class Dice : MonoBehaviour
 {
     public DiceFace Roll()
     {
