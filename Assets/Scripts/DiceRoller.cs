@@ -22,13 +22,15 @@ public class DiceRoller : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            //RollDice();
+            RollDice();
             DisplayRolledResources();  // Optional: To see rolled resources in the console
         }
 
         if (Input.GetKeyDown(KeyCode.W))
         {
+            currentDiceCount++;
             AddDice();
+
         }
     }
 
@@ -63,11 +65,18 @@ public class DiceRoller : MonoBehaviour
         // Map each DiceFace to a corresponding ResourceColor
         switch (face)
         {
-            case DiceFace.Orange: return ResourceColor.Orange;
-            case DiceFace.Green: return ResourceColor.Green;
-            case DiceFace.Yellow: return ResourceColor.Yellow;
-            case DiceFace.Blue: return ResourceColor.Blue;
-            case DiceFace.Grey: return ResourceColor.Grey;
+            case DiceFace.Orange: 
+                return ResourceColor.Orange;
+            case DiceFace.Green: 
+                return ResourceColor.Green;
+            case DiceFace.Yellow: 
+                return ResourceColor.Yellow;
+            case DiceFace.Blue: 
+                return ResourceColor.Blue;
+            case DiceFace.Grey: 
+                return ResourceColor.Grey;
+            case DiceFace.Gold: 
+                return ResourceColor.Gold;
             default: return ResourceColor.Grey;  // Default or wildcard if needed
         }
     }
@@ -79,7 +88,6 @@ public class DiceRoller : MonoBehaviour
         if (newDie != null)
         {
             dicePool.Add(newDie);  // Add the new Dice instance to the pool
-            currentDiceCount++;
             Debug.Log("Added one more die. Current dice count: " + currentDiceCount);
         }
     }

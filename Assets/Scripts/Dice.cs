@@ -15,6 +15,7 @@ public enum DiceFace
 
 public class Dice : MonoBehaviour
 {
+    public DiceFace Face;
     public DiceFace Roll()
     {
         // Randomly select a face

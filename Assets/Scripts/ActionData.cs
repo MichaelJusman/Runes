@@ -10,7 +10,7 @@ public enum TargetType
     NoTarget      // No target required
 }
 
-public enum ResourceColor {  Orange, Green, Yellow, Blue, Grey }
+public enum ResourceColor {  Orange, Green, Yellow, Blue, Grey, Gold }
 
 [System.Serializable]
 public struct ResourceCost

@@ -34,9 +34,9 @@ public class ResourceTest : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            diceRoller.RollDice();  // Roll the dice and update resources
+            //diceRoller.RollDice();  // Roll the dice and update resources
             TestCardActions();      // Attempt to execute actions with rolled resources
         }
     }
