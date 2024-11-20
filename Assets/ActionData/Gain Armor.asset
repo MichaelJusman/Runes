@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0861242598e49d479da92372ceb16c7, type: 3}
-  m_Name: Hardening
+  m_Name: Gain Armor
   m_EditorClassIdentifier: 
-  actionName: Hardening
-  description: Damage self for 3, then gain 4 armor
-  targetType: 2
+  actionName: Gain Armor
+  description: Gain 3 Armor
+  targetType: 0
   resourceCosts:
-  - color: 1
+  - color: 4
     amount: 1
   effects:
-  - {fileID: 11400000, guid: a614400a077871e43af83e379bac1034, type: 2}
   - {fileID: 11400000, guid: d284cf16b49a09a43bba30b22b964e12, type: 2}

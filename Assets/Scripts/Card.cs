@@ -51,6 +51,16 @@ public class Card : MonoBehaviour
             ApplyTestEffect(2); // Apply the third effect in testEffects
         }
 
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            Heal(2); // Apply the third effect in testEffects
+        }
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            AddArmor(2); // Apply the third effect in testEffects
+        }
+
 
         // Add more keys as needed
     }
@@ -122,6 +132,7 @@ public class Card : MonoBehaviour
             currentHealth = 0;
             //DCall death here
         }
+
         UIUpdate();
 
     }
@@ -129,6 +140,8 @@ public class Card : MonoBehaviour
     public void Heal(int heal)
     {
         currentHealth += heal;
+        healthText.text = currentHealth.ToString();
+
         UIUpdate();
 
     }
@@ -136,6 +149,8 @@ public class Card : MonoBehaviour
     public void AddArmor(int add)
     {
         armor += add;
+        armorText.text = armor.ToString();
+
         UIUpdate();
 
     }

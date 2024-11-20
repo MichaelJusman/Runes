@@ -6,8 +6,9 @@ public class DiceRoller : MonoBehaviour
 {
     public GameObject dicePrefab;
     public GameObject diceHolder;
-    private List<Dice> dicePool = new List<Dice>();  // List to hold dice
+    public List<Dice> dicePool = new List<Dice>();  // List to hold dice
     private Dictionary<ResourceColor, int> rolledResources;  // Store resource totals after rolling
+    public int goldResources = 0;
 
     private int startingDiceCount = 2;  // Start with 2 dice
     private int currentDiceCount;
@@ -45,18 +46,20 @@ public class DiceRoller : MonoBehaviour
 
     public void RollDice()
     {
-        rolledResources = new Dictionary<ResourceColor, int>();
+        rolledResources = new Dictionary<ResourceColor, int>
+        {
+            { ResourceColor.Orange, 0 },
+            { ResourceColor.Green, 0 },
+            { ResourceColor.Yellow, 0 },
+            { ResourceColor.Blue, 0 },
+            { ResourceColor.Grey, 0 }
+        };
 
         // Roll each die in the pool and tally results
         foreach (var die in dicePool)
         {
             DiceFace face = die.Roll();
-            ResourceColor color = MapFaceToColor(face);
-
-            if (rolledResources.ContainsKey(color))
-                rolledResources[color]++;
-            else
-                rolledResources[color] = 1;
+            AddResourceFromFace(face);
         }
     }
 
@@ -81,6 +84,31 @@ public class DiceRoller : MonoBehaviour
         }
     }
 
+    void AddResourceFromFace(DiceFace face)
+    {
+        switch (face)
+        {
+            case DiceFace.Orange:
+                rolledResources[ResourceColor.Orange]++;
+                break;
+            case DiceFace.Green:
+                rolledResources[ResourceColor.Green]++;
+                break;
+            case DiceFace.Yellow:
+                rolledResources[ResourceColor.Yellow]++;
+                break;
+            case DiceFace.Blue:
+                rolledResources[ResourceColor.Blue]++;
+                break;
+            case DiceFace.Grey:
+                rolledResources[ResourceColor.Grey] += 2;  // Grey adds +2
+                break;
+            case DiceFace.Gold:
+                goldResources += 2;  // Gold is persistent and accumulates
+                break;
+        }
+    }
+
     private void AddDice()
     {
         GameObject diceObject = Instantiate(dicePrefab, diceHolder.transform);  // Instantiate from prefab
@@ -99,10 +127,26 @@ public class DiceRoller : MonoBehaviour
         {
             Debug.Log($"{resource.Key}: {resource.Value}");
         }
+        Debug.Log($"Gold Resources (Persistent): {goldResources}");
     }
 
     public Dictionary<ResourceColor, int> GetRolledResources()
     {
-        return rolledResources;
+        // Combine rolled resources with persistent gold
+        var currentResources = new Dictionary<ResourceColor, int>(rolledResources)
+        {
+            { ResourceColor.Gold, goldResources }  // Add gold to the total
+        };
+        return currentResources;
+    }
+
+    public int SpendGold(int amount)
+    {
+        if (goldResources >= amount)
+        {
+            goldResources -= amount;
+            return amount;
+        }
+        return 0;  // Not enough gold to spend
     }
 }

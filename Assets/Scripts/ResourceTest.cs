@@ -7,29 +7,12 @@ public class ResourceTest : MonoBehaviour
     public Card testCard;  // Assign a Card with actions in the Inspector
     public DiceRoller diceRoller;
 
-    // Simulated resources available for testing
-    public Dictionary<ResourceColor, int> availableResources;
-
     private void Start()
     {
-        //// Initialize resources for testing
-        //availableResources = new Dictionary<ResourceColor, int>
+        //if (Input.GetKeyDown(KeyCode.E))  // Press E to test actions
         //{
-        //    { ResourceColor.Orange, 2 },
-        //    { ResourceColor.Green, 1 },
-        //    { ResourceColor.Yellow, 3 },
-        //    { ResourceColor.Blue, 0 },
-        //    { ResourceColor.Grey, 1 }
-        //};
-
-        //// Run tests for each action on the test card
-        //TestCardActions();
-
-        if (diceRoller == null || testCard == null)
-        {
-            Debug.LogError("DiceRoller or TestCard not assigned.");
-            return;
-        }
+        //    TestCardActions();
+        //}
     }
 
     private void Update()
@@ -44,7 +27,7 @@ public class ResourceTest : MonoBehaviour
 
     private void TestCardActions()
     {
-        Dictionary<ResourceColor, int> rolledResources = diceRoller.GetRolledResources();
+        var rolledResources = diceRoller.GetRolledResources();
 
         Debug.Log($"Testing actions for card: {testCard.cardData.cardName}");
 
@@ -52,18 +35,7 @@ public class ResourceTest : MonoBehaviour
         {
             Debug.Log($"Attempting action: {action.actionName}");
             testCard.ExecuteAction(action, rolledResources);
-
-            // Display resources after attempting the action
-            DisplayResources(rolledResources);
         }
     }
 
-    private void DisplayResources(Dictionary<ResourceColor, int> resources)
-    {
-        Debug.Log("Available Resources:");
-        foreach (var resource in availableResources)
-        {
-            Debug.Log($"{resource.Key}: {resource.Value}");
-        }
-    }
 }
