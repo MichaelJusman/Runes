@@ -20,7 +20,7 @@ MonoBehaviour:
   rarity: 0
   types: 010000000f000000
   actions:
-  - {fileID: 11400000, guid: 8adbde607f6fd834da146ad7f6710812, type: 2}
   - {fileID: 11400000, guid: aa7174eeb6aa8ad4bb8d1562be1bcad5, type: 2}
   - {fileID: 11400000, guid: df181024fa1a87340a32cf404818464b, type: 2}
+  - {fileID: 11400000, guid: 8adbde607f6fd834da146ad7f6710812, type: 2}
   - {fileID: 11400000, guid: 0da153516a5a39e468410c7246523d04, type: 2}

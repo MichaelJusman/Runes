@@ -15,6 +15,7 @@ MonoBehaviour:
   actionName: Bandaid
   description: Heal 2 to self
   targetType: 2
+  staminaCost: 1
   resourceCosts:
   - color: 2
     amount: 1

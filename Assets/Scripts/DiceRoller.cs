@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DiceRoller : MonoBehaviour
 {
+    public Player owner;
+    
     public GameObject dicePrefab;
     public GameObject diceHolder;
     public List<Dice> dicePool = new List<Dice>();  // List to hold dice
@@ -61,6 +63,8 @@ public class DiceRoller : MonoBehaviour
             DiceFace face = die.Roll();
             AddResourceFromFace(face);
         }
+
+        owner.AddResources(rolledResources);
     }
 
     private ResourceColor MapFaceToColor(DiceFace face)

@@ -15,6 +15,7 @@ MonoBehaviour:
   actionName: Gain Armor
   description: Gain 3 Armor
   targetType: 0
+  staminaCost: 1
   resourceCosts:
   - color: 4
     amount: 1

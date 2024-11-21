@@ -25,6 +25,7 @@ public class ActionData : ScriptableObject
     public string actionName;
     public string description; // Optional description for UI
     public TargetType targetType;
+    public int staminaCost;
     public List<ResourceCost> resourceCosts;
     public List<ActionEffect> effects; // List of effects (e.g., damage, healing)
 

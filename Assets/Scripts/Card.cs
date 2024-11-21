@@ -10,6 +10,7 @@ public class Card : MonoBehaviour
 {
     [Header("Card Data")]
     public CardData cardData;
+    public Player owner;
     public int currentHealth;
     public int armor;
     public int stamina;
@@ -28,7 +29,6 @@ public class Card : MonoBehaviour
 
     [Header("Testing")]
     public List<StatusEffectData> testEffects;
-
 
     private void Start()
     {
@@ -63,6 +63,11 @@ public class Card : MonoBehaviour
 
 
         // Add more keys as needed
+    }
+
+    public void InitializedOwner(Player player)
+    {
+        owner = player;
     }
 
     private void InitializeCard()
