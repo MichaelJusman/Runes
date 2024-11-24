@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50e25b7c114012b42974094ae9c962e0, type: 3}
-  m_Name: Davon Foot Soldier
+  m_Name: Davon Police
   m_EditorClassIdentifier: 
-  cardName: Davon Foot Soldier
+  cardName: Davon Police
   health: 10
   armor: 2
   stamina: 1
-  artwork: {fileID: 21300000, guid: 627d2824bd0674642bb96ff084b3f232, type: 3}
+  artwork: {fileID: 21300000, guid: 1151b8b51070fb247b6117b213eeef7a, type: 3}
   rarity: 0
   types: 010000000f000000
   actions:

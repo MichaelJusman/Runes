@@ -90,9 +90,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   face: 0
   faceSprites:
-  - {fileID: 21300000, guid: 83393a56fd19b164dbd0ab31f1dc02c0, type: 3}
-  - {fileID: 21300000, guid: 675da5758b1a38f48be28acdfcc3a9a0, type: 3}
-  - {fileID: 21300000, guid: 7c470c93ac76f3040bee0a3f437c60ad, type: 3}
-  - {fileID: 21300000, guid: 93deffaaf4103e04d884ac4566e68720, type: 3}
-  - {fileID: 21300000, guid: c891e54808f321d4aa096a6eb96c7bb7, type: 3}
-  - {fileID: 21300000, guid: 304896fe1e11a8840be5a74697c4d725, type: 3}
+  - {fileID: 21300000, guid: 0214602a2ccdcbc43bf49336e5f74e7a, type: 3}
+  - {fileID: 21300000, guid: ee39d0e798ce4ce4a878453a3f8bc26d, type: 3}
+  - {fileID: 21300000, guid: e4042f9ca0e8e514281f474cde93ac0e, type: 3}
+  - {fileID: 21300000, guid: 362ebd984d946334c84438080c6d760b, type: 3}
+  - {fileID: 21300000, guid: 7899811c885cb9f42828320c1fe86d09, type: 3}
+  - {fileID: 21300000, guid: 9680d6733b5713b42b017529d02b140a, type: 3}
